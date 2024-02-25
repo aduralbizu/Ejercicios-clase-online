@@ -1,5 +1,7 @@
 import './App.css'
 import Productos from './Components/Productos';
+import Header from './UI/Header';
+import Footer from './UI/Footer';
 
 function App() {
 
@@ -22,7 +24,9 @@ function App() {
   ]
   return (
     <div>
+      <Header/>
       <Productos productos={productos}/>
+      <Footer/>
     </div>
 
   );
