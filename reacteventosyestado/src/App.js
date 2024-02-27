@@ -37,7 +37,7 @@ function App() {
   )
   const addProducto = (producto) =>{
     //setProductos(Productos.push(producto)) Lo que hace en realidad
-      setProductos((prevproductos)=>{ //Funcion de actualización que recibe estado anterior
+      setProductos((prevproductos)=>{ //Funcion de actualización que recibe estado anterior. La función para actualizar el estado también puede recibir una función como argumento en lugar de un valor directo. Esta función recibirá el estado anterior como su primer argumento, y deberá devolver el nuevo estado basado en el estado anterior. Así es como funciona React
         return [producto, ...prevproductos] //Array que suma estado anterior más el nuevo producto
       });
   }

@@ -26,11 +26,11 @@ const NuevoProducto = (props) => {
             precio: precio,
             fecha: new Date(fecha)
         }
-        console.log(producto)
+        // console.log(producto)
         props.addProducto(producto);
         setNombre('');
         setPrecio('');
-        setFecha('');
+        setFecha(''); //Borro contenido interfaz
     }
 
     return (

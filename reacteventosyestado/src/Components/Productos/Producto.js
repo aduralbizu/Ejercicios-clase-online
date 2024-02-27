@@ -10,7 +10,6 @@ function Producto(props) {
     const fecha = props.producto.fecha;
 
     const clickHandler = () => { //Handler de eventos
-        alert('Entra');
         setNombre('Nuevo nombre');
     }
 
