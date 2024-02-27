@@ -17,7 +17,7 @@ function Productos(props) {
         return true; //Todos los años lo van a cumplir
     }) //Ano se va actualizando a tiempo real, y esto se va filtrando con una sola línea
 
-    let contenido = <Alert variant="primary">No hay productos</Alert>; //Contenido condicional
+    let contenido = <Alert variant="primary">No hay productos</Alert>; //Contenido condicional. Lo presentaremos en pantalla
 
     if (productosFiltrados.length > 0) {
         contenido = <div>
