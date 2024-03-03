@@ -23,7 +23,6 @@ const FiltroProductos = (props) => {
                     </Form.Select></Col>
             </Row>
         </Container>
-
         </>
     )
 }

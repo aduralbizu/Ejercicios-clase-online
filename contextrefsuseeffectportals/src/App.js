@@ -6,6 +6,7 @@ import NuevoProducto from './Components/NuevoProducto/NuevoProducto';
 import { useState } from 'react';
 import AutContext from './store/AutContext';
 import ProductosContext from './store/ProductosContext';
+import ReactDOM from 'react-dom';
 
 function App() {
 
