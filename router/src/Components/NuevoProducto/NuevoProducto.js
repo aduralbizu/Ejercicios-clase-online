@@ -5,7 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactDOM from 'react-dom';
-import './NuevoProducto.css'
+import './NuevoProducto.css';
+import { useNavigate } from 'react-router-dom';
 
 //Nuevo componente, sin exportarlo, para utilizarlo aquí mismo:
 const InfoModal = (props) => {
@@ -26,9 +27,7 @@ const InfoModal = (props) => {
 
         )
     }
-
     return null; //Si no es verdad
-
 }
 
 const NuevoProducto = (props) => {
@@ -36,6 +35,8 @@ const NuevoProducto = (props) => {
     const [nombre, setNombre] = useState('');
     const [precio, setPrecio] = useState('');
     const [fecha, setFecha] = useState('');
+
+    const navega = useNavigate(); //Hook para cambiar la ubicación actual del enrutador. Un hook en React es una función especial que te permite agregar características de React a un componente funcional. 
 
     const nombreRef = useRef(); //Esta variable va a ser un puntero. Es lo que estamos diciendo.
 
@@ -72,7 +73,8 @@ const NuevoProducto = (props) => {
         setPrecio('');
         setFecha(''); //Borro contenido interfaz. Equivalente:  nombreRef.current.value = '';
         // nombreRef.current.focus();
-
+        setTimeout(()=>{navega('/products')},1000)
+        // navega('/products');
     }
 
     const onBlurHandler = () => {

@@ -11,6 +11,9 @@ import Contact from './Pages/Contact';
 import Productos from './Components/Productos/Productos';
 import NuevoProducto from './Components/NuevoProducto/NuevoProducto';
 import ProductosContext from './store/ProductosContext';
+import ErrorPage from './Pages/ErrorPage';
+import DetalleProducto from './Components/Productos/DetalleProducto';
+
 
 function App() {
 
@@ -78,8 +81,10 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/products' element={contenidoProductos} />
+          <Route path='/product/:id' element={<DetalleProducto/>} />
           <Route path='/new-product' element={<NuevoProducto addProducto={addProducto} />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='*' element={<ErrorPage />} />
           {/* Este elemento mostrará una cosa o la otra según a ruta */}
         </Routes>
         <Footer />
