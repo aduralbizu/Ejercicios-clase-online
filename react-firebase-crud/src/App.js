@@ -6,7 +6,7 @@ import AutContext from './store/AutContext';
 import ReactDOM from 'react-dom';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
-import AboutUs from './Pages/AboutUs';
+import AboutUs from './Pages/AboutUs'; 
 import Contact from './Pages/Contact';
 import Productos from './Components/Productos/Productos';
 import NuevoProducto from './Components/NuevoProducto/NuevoProducto';

@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ProductosContext from '../../store/ProductosContext';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Producto(props) {
 
@@ -20,7 +21,13 @@ function Producto(props) {
     }
 
     const borraHandler = () => { //handler para borrar
-        props.borraProducto(props.producto.id);
+        // props.borraProducto(props.producto.id);
+        axios.delete('https://dsm-react-ejercicios-online-default-rtdb.firebaseio.com/productos/' + props.producto.id + '.json')
+            .then((response) => {
+                alert('Producto' + props.producto.id + ' borrado');
+                contextProductos.borraProducto(props.producto.id);
+                props.borraProducto2(props.producto.id);
+            })  
     }
 
     const borraHandlerContext = () => { //handler para borrar
@@ -28,7 +35,6 @@ function Producto(props) {
     }
 
     const [show, setShow] = useState(false); //lógica ventana modal
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -44,8 +50,10 @@ function Producto(props) {
             <Button variant="warning" onClick={handleShow}>
                 Ver detalles
             </Button>
-            <Button variant = "danger" onClick = {borraHandler}>BORRAR</Button>
-            <Button variant = "danger" onClick = {borraHandlerContext}>BORRAR2</Button>
+            <Button variant="danger" onClick={borraHandler}>BORRAR</Button>
+             {/* Esto solo borra productos que vienen desde desde la BD */}
+            <Button variant="danger" onClick={borraHandlerContext}>BORRAR2</Button> 
+            {/* Esto solo borra productos que vienen desde app.js */}
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

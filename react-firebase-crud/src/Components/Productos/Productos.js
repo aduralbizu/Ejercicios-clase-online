@@ -26,8 +26,18 @@ function Productos(props) {
                 }
                 console.log(arrayProductos);
                 setProductos(arrayProductos);
+            }).catch((error) => {
+                alert("Se ha producido un error");
             })
     }, []); //Dependencia array vacío para que solo se ejecute una vez
+
+    const borraProducto2 = (id) => { //para borrar componente de producto que ya ha sido borrado de la BD:
+        let copiaProductos = [...productos]; //A shallow copy means constructing a new collection object and then populating it with references to the child objects found in the original. I
+        copiaProductos = copiaProductos.filter((elemento) => { // Filter recorre todos los elementos, la función se ejecutará para todos. En aquellos elementos donde la comparación de la función sea verdadera, nos quedamos con el elemento
+            return elemento.id !== id; //si es distinto, déjalo
+        })
+        setProductos(copiaProductos);
+    }
 
     const updateAno = (ano) => {
         setAno(ano);
@@ -47,7 +57,7 @@ function Productos(props) {
             {
                 productos.map((elemento) => { // La expresión props.productos.map(...) en JavaScript generalmente se usa para iterar sobre cada elemento de un array. Ejecuta la función que se le pasa como argumento para cada elemento del array
                     return (
-                        <Producto key={elemento.id} producto={elemento} borraProducto={props.borraProducto} />
+                        <Producto key={elemento.id} producto={elemento} borraProducto={props.borraProducto} borraProducto2={borraProducto2} />
                     )
                 })
             }
