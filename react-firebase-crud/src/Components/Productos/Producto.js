@@ -44,6 +44,7 @@ function Producto(props) {
             <div className='producto__descripcion'>
                 {/* <h2>{nombre} - <Button variant='outline-warning'><Link to={`/product/${props.producto.id}`}>Ver detalles</Link></Button></h2> */}
                 <h2>{nombre} - <Button variant='outline-warning'><Link to={`/product/${props.producto.id}?format=extended`}>Ver detalles</Link></Button></h2>
+               
                 <div className='producto__precio'>{precio}</div>
             </div>
             <Button onClick={clickHandler}>Cambia nombre</Button>

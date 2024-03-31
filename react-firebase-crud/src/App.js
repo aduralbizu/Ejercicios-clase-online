@@ -13,6 +13,7 @@ import NuevoProducto from './Components/NuevoProducto/NuevoProducto';
 import ProductosContext from './store/ProductosContext';
 import ErrorPage from './Pages/ErrorPage';
 import DetalleProducto from './Components/Productos/DetalleProducto';
+import EditarProducto from './Components/EditarProducto/EditarProducto';
 
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
           <Route path='/about-us' element={<AboutUs />} />
           <Route path='/products' element={contenidoProductos} />
           <Route path='/product/:id' element={<DetalleProducto/>} />
+          <Route path='/product/edit/:id' element={<EditarProducto/>} />
           <Route path='/new-product' element={<NuevoProducto addProducto={addProducto} />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='*' element={<ErrorPage />} />

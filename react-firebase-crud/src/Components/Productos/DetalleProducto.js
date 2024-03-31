@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 
 const DetalleProducto = () => {
     const parametros = useParams();
@@ -30,7 +31,9 @@ const DetalleProducto = () => {
             <p>Información del producto: {producto.descripcion}</p>
             <p>Precio: {producto.precio}</p>
             <p>Fecha: {producto.fecha}</p>
+            <img style= {{width:'100px'}} alt='' src={producto.imagen}></img>
             <p>Formato de plantilla= {formato.get('format')}</p>
+            <Button variant="success"><Link to={`/product/edit/${parametros.id}`}>EDITAR PRODUCTO</Link></Button>
         </>
     )
 }
