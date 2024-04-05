@@ -83,10 +83,12 @@ const NuevoProducto = (props) => {
         // setTimeout(() => { navega('/products') }, 1000)
         // navega('/products');
 
-        axios.post('https://dsm-react-ejercicios-online-default-rtdb.firebaseio.com/productos.json',producto)
-        .then((response)=>{
-            alert("El producto se ha insertado en la BD");
-        })
+        axios.post('https://dsm-react-ejercicios-online-default-rtdb.firebaseio.com/productos.json?auth='+props.idToken, producto)
+            .then((response) => {
+                alert("El producto se ha insertado en la BD");
+            }).catch((error) => {
+                alert("No se puede crear el producto");
+            })
     }
 
     const onBlurHandler = () => {

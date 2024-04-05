@@ -44,7 +44,10 @@ function Header() {
                     <Link to="/contact?sede=Pamplona&persona=Julian">Contacto|</Link> | {'  '}
                 </Nav.Item>
                 <Nav.Item >
-                    <Link to="/login">LOGIN</Link>
+                    <Link to="/login">LOGIN</Link>  | {'  '}
+                </Nav.Item>
+                <Nav.Item >
+                    <Link to="/registro">REGISTRO</Link>
                 </Nav.Item>
             </Nav>
         </div>

@@ -57,7 +57,7 @@ function Productos(props) {
             {
                 productos.map((elemento) => { // La expresión props.productos.map(...) en JavaScript generalmente se usa para iterar sobre cada elemento de un array. Ejecuta la función que se le pasa como argumento para cada elemento del array
                     return (
-                        <Producto key={elemento.id} producto={elemento} borraProducto={props.borraProducto} borraProducto2={borraProducto2} />
+                        <Producto key={elemento.id} producto={elemento} borraProducto={props.borraProducto} borraProducto2={borraProducto2} idToken = {props.idToken}/>
                     )
                 })
             }

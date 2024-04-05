@@ -22,12 +22,14 @@ function Producto(props) {
 
     const borraHandler = () => { //handler para borrar
         // props.borraProducto(props.producto.id);
-        axios.delete('https://dsm-react-ejercicios-online-default-rtdb.firebaseio.com/productos/' + props.producto.id + '.json')
+        axios.delete('https://dsm-react-ejercicios-online-default-rtdb.firebaseio.com/productos/' + props.producto.id + '.json?auth='+props.idToken)
             .then((response) => {
                 alert('Producto' + props.producto.id + ' borrado');
                 contextProductos.borraProducto(props.producto.id);
                 props.borraProducto2(props.producto.id);
-            })  
+            }).catch((error) => {
+                alert("No se puede borrar");
+            })
     }
 
     const borraHandlerContext = () => { //handler para borrar
@@ -44,7 +46,7 @@ function Producto(props) {
             <div className='producto__descripcion'>
                 {/* <h2>{nombre} - <Button variant='outline-warning'><Link to={`/product/${props.producto.id}`}>Ver detalles</Link></Button></h2> */}
                 <h2>{nombre} - <Button variant='outline-warning'><Link to={`/product/${props.producto.id}?format=extended`}>Ver detalles</Link></Button></h2>
-               
+
                 <div className='producto__precio'>{precio}</div>
             </div>
             <Button onClick={clickHandler}>Cambia nombre</Button>
@@ -52,8 +54,8 @@ function Producto(props) {
                 Ver detalles
             </Button>
             <Button variant="danger" onClick={borraHandler}>BORRAR</Button>
-             {/* Esto solo borra productos que vienen desde desde la BD */}
-            <Button variant="danger" onClick={borraHandlerContext}>BORRAR2</Button> 
+            {/* Esto solo borra productos que vienen desde desde la BD */}
+            <Button variant="danger" onClick={borraHandlerContext}>BORRAR2</Button>
             {/* Esto solo borra productos que vienen desde app.js */}
 
             <Modal show={show} onHide={handleClose}>

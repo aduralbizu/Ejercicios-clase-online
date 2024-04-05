@@ -46,10 +46,12 @@ const EditarProducto = (props) => {
             descripcion: descripcion
         }
 
-        axios.put('https://dsm-react-ejercicios-online-default-rtdb.firebaseio.com/productos/'+parametros.id +'.json',producto)
-        .then((response)=>{
-            alert('Producto Actualizado');
-        });
+        axios.put('https://dsm-react-ejercicios-online-default-rtdb.firebaseio.com/productos/' + parametros.id + '.json?auth=' + props.idToken, producto)
+            .then((response) => {
+                alert('Producto Actualizado');
+            }).catch((error) => {
+                alert('No se puede actualizar el producto')
+            })
     }
 
 
@@ -59,14 +61,14 @@ const EditarProducto = (props) => {
                 <Container>
                     <Row>
                         <Col><Form.Label>Nombre</Form.Label>
-                            <Form.Control onChange={(event)=>setNombre(event.target.value)} type="text" value={nombre} /></Col>
+                            <Form.Control onChange={(event) => setNombre(event.target.value)} type="text" value={nombre} /></Col>
                         {/* onblur es cuando sales del input (clicas otro input) */}
                         <Col><Form.Label>Precio</Form.Label>
-                            <Form.Control onChange={(event)=>setPrecio(event.target.value)} type="number" value={precio} /></Col>
+                            <Form.Control onChange={(event) => setPrecio(event.target.value)} type="number" value={precio} /></Col>
                         <Col><Form.Label>Fecha</Form.Label>
-                            <Form.Control onChange={(event)=>setFecha(event.target.value)} type="date" value={fecha} /></Col>
+                            <Form.Control onChange={(event) => setFecha(event.target.value)} type="date" value={fecha} /></Col>
                         <Col><Form.Label>Descripcion</Form.Label>
-                            <Form.Control onChange={(event)=>setDescripcion(event.target.value)} type="text" value={descripcion} /></Col>
+                            <Form.Control onChange={(event) => setDescripcion(event.target.value)} type="text" value={descripcion} /></Col>
                         <Col><Button type="submit" variant="success">EDITAR PRODUCTO</Button></Col>
                     </Row>
                 </Container>
